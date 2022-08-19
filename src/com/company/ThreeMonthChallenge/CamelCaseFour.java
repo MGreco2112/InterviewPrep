@@ -10,40 +10,44 @@ public class CamelCaseFour {
         String inputType = "";
         int postHeaderIndex = 4;
 
-        String input = scanner.nextLine();
+        while (scanner.hasNext()) {
 
-        StringBuilder output = new StringBuilder();
 
-        if (input.substring(0,1).equals("S")) {
-            isSplit = true;
-        }
+            String input = scanner.nextLine();
 
-        inputType = input.substring(2,3);
+            StringBuilder output = new StringBuilder();
 
-        if (inputType.equals("C")) {
-            output.append(Character.toUpperCase(input.charAt(postHeaderIndex)));
-        } else {
-            output.append(input.charAt(postHeaderIndex));
-        }
+            if (input.substring(0, 1).equals("S")) {
+                isSplit = true;
+            }
 
-        if (isSplit) {
-            for (int i = postHeaderIndex + 1; i < input.length(); i++) {
-                if (Character.toLowerCase(input.charAt(i)) != input.charAt(i)) {
-                    output.append(" " + Character.toLowerCase(input.charAt(i)));
-                } else if (i < input.length() -2){
-                    output.append(input.charAt(i));
+            inputType = input.substring(2, 3);
+
+            if (inputType.equals("C")) {
+                output.append(Character.toUpperCase(input.charAt(postHeaderIndex)));
+            } else {
+                output.append(input.charAt(postHeaderIndex));
+            }
+
+            if (isSplit) {
+                for (int i = postHeaderIndex + 1; i < input.length(); i++) {
+                    if (Character.toLowerCase(input.charAt(i)) != input.charAt(i)) {
+                        output.append(" " + Character.toLowerCase(input.charAt(i)));
+                    } else if (i < input.length() - 2) {
+                        output.append(input.charAt(i));
+                    }
+
+                    if (i >= input.length() - 2 && !inputType.equals("M")) {
+                        output.append(input.charAt(i));
+                    }
                 }
-
-                if (i >= input.length() - 2 && !inputType.equals("M")) {
-                    output.append(input.charAt(i));
+            } else {
+                for (int i = postHeaderIndex + 1; i < input.length(); i++) {
+                    //TODO write logic for combining
                 }
             }
-        } else {
-            for (int i = postHeaderIndex + 1; i < input.length(); i++) {
-                //TODO write logic for combining
-            }
-        }
 
-        System.out.println(output);
+            System.out.println(output);
+        }
     }
 }
