@@ -1,6 +1,6 @@
 package com.company.SQL;
 
-public class WhetherObservationStationV {
+public class WeatherObservationStationV {
 //SELECT CITY, LENGTH(CITY) FROM STATION
 //WHERE LENGTH(CITY) IN
 //(SELECT MIN(LENGTH(CITY)) FROM STATION)
