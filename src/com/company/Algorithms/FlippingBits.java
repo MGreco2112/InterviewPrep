@@ -1,4 +1,4 @@
-package com.company.Java;
+package com.company.Algorithms;
 
 public class FlippingBits {
     public static long flippingBits(long n) {
