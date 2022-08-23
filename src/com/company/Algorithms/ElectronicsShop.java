@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ElectronicsShop {
     static int getMoneySpent(int[] keyboards, int[] drives, int b) {
-        List<Integer> totalOptions = new ArrayList<>();
+        int maxOptions = Integer.MIN_VALUE;
 
         for (int i = 0; i < keyboards.length; i++) {
             for (int j = 0; j < drives.length; j++) {
@@ -16,17 +16,17 @@ public class ElectronicsShop {
                     return pairTotal;
                 }
 
-                if (pairTotal <= b) {
-                    totalOptions.add(pairTotal);
+                if (pairTotal <= b && pairTotal > maxOptions) {
+                    maxOptions = pairTotal;
                 }
 
             }
         }
 
-        if (totalOptions.size() == 0) {
+        if (maxOptions == Integer.MIN_VALUE) {
             return -1;
         }
 
-        return Collections.max(totalOptions);
+        return maxOptions;
     }
 }
