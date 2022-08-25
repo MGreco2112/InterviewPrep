@@ -20,14 +20,14 @@ public class SalesByMatching {
 
         int maxPairs = 0;
 
-        for (Integer pair : sockMap.keySet()) {
-            int currentPair = sockMap.get(pair);
+        for (Integer pair : sockMap.values()) {
 
-            if (currentPair >= 2) {
-                maxPairs += currentPair / 2;
+            if (pair >= 2) {
+                maxPairs += pair / 2;
             }
         }
 
         return maxPairs;
+
     }
 }
