@@ -4,10 +4,6 @@ public class StrongPassword {
     public static int minimumNumber(int n, String password) {
         // Return the minimum number of characters to make the password strong
 
-        if (n < 6) {
-            return 6 - n;
-        }
-
         int output = 0;
 
         if (!password.matches("^.*[0-9],*$")) {
@@ -30,7 +26,12 @@ public class StrongPassword {
             output++;
         }
 
+        if (output + n < 6) {
+            output += Math.abs((output + n) - 6);
+        }
+
         return output;
     }
+
 
 }
