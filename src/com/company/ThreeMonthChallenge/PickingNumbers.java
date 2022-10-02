@@ -20,6 +20,13 @@ public class PickingNumbers {
             System.out.println(a.get(i));
             System.out.println("current num: " + currentNum);
 
+            //condition is faulty
+            //greater or equal passes one case
+            //only greater passes other
+            //greater or equal passes more cases overall
+            //the reason for this needs to be ironed out further
+
+
             if (a.get(i) >= currentNum + 1) {
                 System.out.println(true);
 
