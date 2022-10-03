@@ -8,15 +8,6 @@ public class SubarrayDivisionTwo {
         // Write your code here
         int output = 0;
 
-        System.out.println(s.size() - m);
-        System.out.println();
-
-        if (s.size() == 1 && s.get(0) == d) {
-            return 1;
-        } else if (s.size() == 1 && s.get(0) != d) {
-            return 0;
-        }
-
         for (int i = 0; i <= s.size() - m; i++) {
             int count = 0;
 
