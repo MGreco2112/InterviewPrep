@@ -7,7 +7,7 @@ import java.util.List;
 
 public class FlippingTheMatrix {
     //maximize the sum of the indexes in the upper left quadrant of the matrix
-    //
+    //rows and columns may be reversed any number of times, but that is the only way the matrix may be altered
 
 
     public static int flippingMatrix(List<List<Integer>> matrix) {
@@ -18,18 +18,24 @@ public class FlippingTheMatrix {
             Collections.sort(lists);
             Collections.reverse(lists);
 
-            System.out.println(lists);
+//            System.out.println(lists);
+
+            for (int i = 0; i < lists.size() / 2; i++) {
+                upperLeftQuad.add(lists.get(i));
+            }
         }
 
-//        for (int i = 0; i < matrix.size() / 2; i++) {
-//            for (int j = 0; j < matrix.size() / 2; j++) {
-//                upperLeftQuad.add(matrix.get(i).get(j));
-//            }
-//        }
+        Collections.sort(upperLeftQuad);
 
-//        System.out.println(upperLeftQuad);
+        int output = 0;
 
-        return 0;
+        for (int i = upperLeftQuad.size() - 1; i >= upperLeftQuad.size() / 2; i--) {
+            output += upperLeftQuad.get(i);
+        }
+
+        System.out.println(output);
+
+        return output;
     }
 
     public static void main(String[] args) {
