@@ -12,30 +12,28 @@ public class FlippingTheMatrix {
 
     public static int flippingMatrix(List<List<Integer>> matrix) {
         // Write your code here
-        List<Integer> upperLeftQuad = new ArrayList<>();
+        int sum = 0;
 
-        for (List<Integer> lists : matrix) {
-            Collections.sort(lists);
-            Collections.reverse(lists);
+        for (int i = 0; i < matrix.size(); i++) {
 
-//            System.out.println(lists);
+            if (matrix.get(i).get(0) < matrix.get(i).get(matrix.get(i).size() - 1)) {
+                Collections.reverse(matrix.get(i));
+            }
 
-            for (int i = 0; i < lists.size() / 2; i++) {
-                upperLeftQuad.add(lists.get(i));
+            if (i > 0 && matrix.get(i).get(0) > matrix.get(i - 1).get(0)) {
+                Collections.swap(matrix, i - 1, i);
             }
         }
 
-        Collections.sort(upperLeftQuad);
-
-        int output = 0;
-
-        for (int i = upperLeftQuad.size() - 1; i >= upperLeftQuad.size() / 2; i--) {
-            output += upperLeftQuad.get(i);
+        for (int i = 0; i < matrix.size() / 2; i++) {
+            for (int j = 0; j < matrix.size() / 2; j++) {
+                sum += matrix.get(i).get(j);
+            }
         }
 
-        System.out.println(output);
+        System.out.println(sum);
 
-        return output;
+        return sum;
     }
 
     public static void main(String[] args) {
