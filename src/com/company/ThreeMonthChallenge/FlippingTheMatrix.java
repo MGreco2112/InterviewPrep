@@ -14,20 +14,45 @@ public class FlippingTheMatrix {
         // Write your code here
         int sum = 0;
 
+        List<int[]> listArray = new ArrayList<>();
+
         for (int i = 0; i < matrix.size(); i++) {
+
+            int[] arr = new int[matrix.size()];
 
             if (matrix.get(i).get(0) < matrix.get(i).get(matrix.get(i).size() - 1)) {
                 Collections.reverse(matrix.get(i));
             }
 
-            if (i > 0 && matrix.get(i).get(0) > matrix.get(i - 1).get(0)) {
-                Collections.swap(matrix, i - 1, i);
+            int index = 0;
+
+            for (Integer num : matrix.get(i)) {
+                arr[index] = num;
+                index++;
+            }
+
+            listArray.add(arr);
+        }
+
+        for (int i = 0; i < listArray.size(); i++) {
+            for (int j = 0; j < listArray.get(i).length / 2; j++) {
+
+                if (i > 0 && listArray.get(i)[j] < listArray.get(i - 1)[j]) {
+
+                    int temp = listArray.get(i - 1)[j];
+                    listArray.get(i - 1)[j] = listArray.get(i)[j];
+                    listArray.get(i)[j] = temp;
+
+                    i = 1;
+                }
             }
         }
 
-        for (int i = 0; i < matrix.size() / 2; i++) {
-            for (int j = 0; j < matrix.size() / 2; j++) {
-                sum += matrix.get(i).get(j);
+
+
+        for (int i = 0; i < listArray.size() / 2; i++) {
+            for (int j = 0; j < listArray.size() / 2; j++) {
+                sum += listArray.get(i)[j];
             }
         }
 
