@@ -7,8 +7,9 @@ import java.util.List;
 
 public class FlippingTheMatrix {
     //maximize the sum of the indexes in the upper left quadrant of the matrix
-    //rows and columns may be reversed any number of times, but that is the only way the matrix may be altered
-
+    //rows and columns may be reversed/flipped respectively any number of times, but that is the only way the matrix may be altered
+    //it is unclear currently if that number may be unlimited with the same data piece, pivoting back and forth
+    //of if it can be swapped with any piece of data until the desired result is acquired
 
     public static int flippingMatrix(List<List<Integer>> matrix) {
         // Write your code here
