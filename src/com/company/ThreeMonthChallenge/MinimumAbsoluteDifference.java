@@ -5,41 +5,59 @@ import java.util.List;
 
 public class MinimumAbsoluteDifference {
     public static int minimumAbsoluteDifference(List<Integer> arr) {
-        Collections.sort(arr);
+//        Collections.sort(arr);
+//
+//        System.out.println(arr);
+//
+//        int minDiff = Integer.MAX_VALUE;
+//
+//        for (int i = arr.size() / 2; i < arr.size(); i++) {
+//            for (int j = i + 1; j < arr.size(); j++) {
+//                int diff = Math.abs(arr.get(i) - arr.get(j));
+//
+//                if (diff < minDiff) {
+//
+//                    System.out.println(diff);
+//                    minDiff = diff;
+//                }
+//            }
+//        }
+//
+//        return minDiff;
+//
+//
 
-        System.out.println(arr);
+//         int minDiff = Integer.MAX_VALUE;
+//
+//         for (int i = 0; i < arr.size(); i++) {
+//             for (int j = i + 1; j < arr.size(); j++) {
+//                 int diff = Math.abs(arr.get(i) - arr.get(j));
+//
+//                 if (diff < minDiff) {
+//                     minDiff = diff;
+//                 }
+//             }
+//         }
+//
+//         return minDiff;
+
+
+
+        Collections.sort(arr);
 
         int minDiff = Integer.MAX_VALUE;
 
-        for (int i = arr.size() / 2; i < arr.size(); i++) {
-            for (int j = i + 1; j < arr.size(); j++) {
-                int diff = Math.abs(arr.get(i) - arr.get(j));
+        for (int i = 0; i < arr.size() - 1; i++) {
+            int diff = Math.abs(arr.get(i) - arr.get(i + 1));
 
-                if (diff < minDiff) {
-
-                    System.out.println(diff);
-                    minDiff = diff;
-                }
+            if (diff < minDiff) {
+                minDiff = diff;
             }
         }
 
         return minDiff;
 
 
-
-        // int minDiff = Integer.MAX_VALUE;
-
-        // for (int i = 0; i < arr.size(); i++) {
-        //     for (int j = i + 1; j < arr.size(); j++) {
-        //         int diff = Math.abs(arr.get(i) - arr.get(j));
-
-        //         if (diff < minDiff) {
-        //             minDiff = diff;
-        //         }
-        //     }
-        // }
-
-        // return minDiff;
 
     }
 }
