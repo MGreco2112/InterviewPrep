@@ -15,10 +15,17 @@ public class CeaserCypher {
 
                 letterCode += k;
 
+                //determine volume of overflow, then add that to start of sequence
+
+                //capital letters
                 if (letterCode > 90 && letterCode < 97) {
-                    letterCode = 89 + k;
+
+
+                    letterCode = 89 - (90 - letterCode);
+                    //lowercase letters
                 } else if (letterCode > 122) {
-                    letterCode = 96 + k;
+
+                    letterCode = 96 - (122 - letterCode);
                 }
 
                 output += (char) letterCode;
