@@ -18,33 +18,37 @@ public class CeaserCypher {
                 //determine volume of overflow, then add that to start of sequence
 
                 //capital letters
-//                if (letterCode > 90 && letterCode < 97) {
-//
-//
-//                    letterCode = 64 - (90 - letterCode);
-//                    //lowercase letters
-//                } else if (letterCode > 122) {
-//
-//                    letterCode = 96 - (122 - letterCode);
-//                }
+                if (letterCode > 90 && letterCode < 97) {
 
-
-                while (letterCode > 90 && letterCode < 97) {
+//                    System.out.println(i);
+//                    System.out.println(letter);
                     letterCode = 64 - (90 - letterCode);
-                }
+                    //lowercase letters
+                } else if (letterCode > 122) {
 
-                while (letterCode > 122) {
-                    System.out.println(letterCode);
+                    System.out.println(i);
+//                    System.out.println(letter);
                     letterCode = 96 - (122 - letterCode);
 
                 }
 
-                System.out.println((char) letterCode);
+
+//                while (letterCode > 90 && letterCode < 97) {
+//                    letterCode = 64 - (90 - letterCode);
+//                }
+//
+//                while (letterCode > 122) {
+//                    letterCode = 96 - (122 - letterCode);
+//
+//                }
+
+//                System.out.println((char) letterCode);
 
 
                 output += (char) letterCode;
 
             } else {
+
                 output += letter;
             }
         }
@@ -55,5 +59,6 @@ public class CeaserCypher {
     public static void main(String[] args) {
         System.out.println(caesarCipher("!m-rB`-oN!.W`cLAcVbN/CqSoolII!SImji.!w/`Xu`uZa1TWPRq`uRBtok`xPT`lL-zPTc.BSRIhu..-!.!tcl!-U", 62));
         System.out.println("!w-bL`-yX!.G`mVKmFlX/MaCyyvSS!CSwts.!g/`He`eJk1DGZBa`eBLdyu`hZD`vV-jZDm.LCBSre..-!.!dmv!-E");
+        System.out.println("!m-rB`-oN!.W`cLAcVbN/CqSoolII!SImji.!w/`Xu`uZa1TWPRq`uRBtok`xPT`lL-zPTc.BSRIhu..-!.!tcl!-U");
     }
 }
