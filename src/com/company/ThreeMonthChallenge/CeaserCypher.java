@@ -18,7 +18,7 @@ public class CeaserCypher {
                 //determine volume of overflow, then add that to start of sequence
 
                 //capital letters
-                if (letterCode > 90 && letterCode < 97) {
+                if (letterCode > 90 && letterCode < 97 + k % 26) {
 
 //                    System.out.println(i);
 //                    System.out.println(letter);
@@ -26,10 +26,13 @@ public class CeaserCypher {
                     //lowercase letters
                 } else if (letterCode > 122) {
 
-                    System.out.println(i);
+//                    System.out.println(i);
 //                    System.out.println(letter);
                     letterCode = 96 - (122 - letterCode);
 
+                } else {
+                    System.out.println(letterCode);
+                    System.out.println(letter);
                 }
 
 
