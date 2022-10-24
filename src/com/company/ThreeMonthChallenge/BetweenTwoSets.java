@@ -1,5 +1,6 @@
 package com.company.ThreeMonthChallenge;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class BetweenTwoSets {
@@ -13,6 +14,8 @@ public class BetweenTwoSets {
     public static int lcm(int x ,int y){
         return(x*y)/gcd(x,y);
     }
+
+
     public static int getTotalX(List<Integer> a, List<Integer> b) {
         int result = 0;
         //get lcm of all elements of a
@@ -36,5 +39,10 @@ public class BetweenTwoSets {
         return result;
     }
 
+    public static void main(String[] args) {
+        List<Integer> listA = Arrays.asList(2,6);
+        List<Integer> listB = Arrays.asList(24,36);
 
+        System.out.println(getTotalX(listA, listB));
+    }
 }
