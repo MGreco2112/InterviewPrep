@@ -14,7 +14,10 @@ public class PermutingTwoArrays {
     public static String twoArrays(int k, List<Integer> A, List<Integer> B) {
         // Write your code here
         //basic iteration without permutation system implemented
-
+        //next steps:
+                //TODO determine how to determine permutation route
+                //TODO determine when to implement permutation
+                //TODO determine when permutation is finished to check current iterative structure
 
         for (int i = 0; i < A.size(); i++) {
             if (A.get(i) + B.get(i) <= k) {
