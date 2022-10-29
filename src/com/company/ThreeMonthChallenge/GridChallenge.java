@@ -14,6 +14,8 @@ public class GridChallenge {
 
             Arrays.sort(arr);
 
+            System.out.println(arr);
+
             String newStr = "";
 
             for (int i = 0; i < arr.length; i++) {
@@ -23,14 +25,16 @@ public class GridChallenge {
             updatedGrid.add(newStr);
         }
 
-        int pointer = 0;
 
         for (int i = 0; i < updatedGrid.size() - 2; i++) {
-            if (updatedGrid.get(i).charAt(pointer) > updatedGrid.get(i + 1).charAt(pointer + 1)) {
+
+            System.out.println((int) updatedGrid.get(i).charAt(i));
+            System.out.println((int) updatedGrid.get(i + 1).charAt(i + 1));
+
+            if (updatedGrid.get(i).charAt(i) > updatedGrid.get(i + 1).charAt(i)) {
                 return "NO";
             }
 
-            pointer++;
         }
 
 
