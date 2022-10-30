@@ -26,12 +26,17 @@ public class GridChallenge {
         }
 
 
-        for (int i = 0; i < updatedGrid.size() - 1; i++) {
+        for (int i = 0; i < updatedGrid.size() -1; i++) {
 
-            if (updatedGrid.get(i).charAt(i) > updatedGrid.get(i + 1).charAt(i)) {
-                return "NO";
+            for (int j = 0; j < updatedGrid.size(); j++) {
+                System.out.println( updatedGrid.get(i).charAt(i));
+                System.out.println(i);
+
+                if (updatedGrid.get(i).charAt(j) > updatedGrid.get(i + 1).charAt(j)) {
+                    return "NO";
+                }
+
             }
-
         }
 
 
