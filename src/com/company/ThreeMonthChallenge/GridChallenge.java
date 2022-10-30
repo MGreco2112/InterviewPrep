@@ -28,7 +28,7 @@ public class GridChallenge {
 
         for (int i = 0; i < updatedGrid.size() -1; i++) {
 
-            for (int j = 0; j < updatedGrid.size(); j++) {
+            for (int j = 0; j < updatedGrid.get(0).length(); j++) {
                 System.out.println( updatedGrid.get(i).charAt(i));
                 System.out.println(i);
 
@@ -38,7 +38,6 @@ public class GridChallenge {
 
             }
         }
-
 
         return "YES";
     }
