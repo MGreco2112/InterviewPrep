@@ -4,17 +4,23 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class PrimeDates {
+
+    //month array stores number of days in selected month
     public static int month[];
 
     public static void main (String[] args) throws java.lang.Exception {
         Scanner in  = new Scanner(System.in);
 
-        month = new int[15];
+        //intro value is 15, setting to 13 for correct month count at zero based indexing (1)
+        month = new int[13];
 
+        //stores date string of start/end date
         String s = in.nextLine();
 
+        //creates tokens from s String at the "- " character
         StringTokenizer str = new StringTokenizer(s, "- ");
 
+        //creates individual variables for each token of s
         int d1 = Integer.parseInt(str.nextToken());
         int m1 = Integer.parseInt(str.nextToken());
         int y1 = Integer.parseInt(str.nextToken());
@@ -22,13 +28,15 @@ public class PrimeDates {
         int m2 = Integer.parseInt(str.nextToken());
         int y2 = Integer.parseInt(str.nextToken());
 
+        //runs result method on int variables
         int result = findPrimeDates(d1, m1, y1, d2, m2, y2);
+        //prints result
         System.out.println(result);
     }
 
     public static void updateLeapYear(int year) {
         if(year % 400 == 0) {
-            month[2] = 28;
+            month[2] = 29; //leap year also at 400 (2)
         } else if(year % 100 == 0) {
             month[2] = 29;
         } else if(year % 4 == 0) {
