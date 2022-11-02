@@ -62,15 +62,17 @@ public class PrimeDates {
     }
 
     public static int findPrimeDates(int d1, int m1, int y1, int d2, int m2, int y2) {
+        //populates month arr with number of days for each month
         storeMonth();
 
+        //initializes result int variable
         int result = 0;
 
         while(true) {
             int x = d1;
             x = x * 100 + m1;
             x = x * 1000 + y1;
-            if(x % 4 == 0 && x % 7 == 0) {
+            if(x % 4 == 0 || x % 7 == 0) { //swapped && for || as per condition for problem (3)
                 result = result + 1;
             }
             if(d1 == d2 && m1 == m2 && y1 == y2) {
