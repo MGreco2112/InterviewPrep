@@ -11,8 +11,7 @@ public class PrimeDates {
     public static void main (String[] args) throws java.lang.Exception {
         Scanner in  = new Scanner(System.in);
 
-        //intro value is 15, setting to 13 for correct month count at zero based indexing (1)
-        month = new int[13];
+        month = new int[15];
 
         //stores date string of start/end date
         String s = in.nextLine();
@@ -36,7 +35,7 @@ public class PrimeDates {
 
     public static void updateLeapYear(int year) {
         if(year % 400 == 0) {
-            month[2] = 29; //leap year also at 400 (2)
+            month[2] = 29; //leap year also at 400 (1)
         } else if(year % 100 == 0) {
             month[2] = 29;
         } else if(year % 4 == 0) {
@@ -71,8 +70,8 @@ public class PrimeDates {
         while(true) {
             int x = d1;
             x = x * 100 + m1;
-            x = x * 1000 + y1;
-            if(x % 4 == 0 || x % 7 == 0) { //swapped && for || as per condition for problem (3)
+            x = x * 100 + y1; //removed zero from multiplication (4)
+            if(x % 4 == 0 || x % 7 == 0) { //swapped && for || as per condition for problem (2)
                 result = result + 1;
             }
             if(d1 == d2 && m1 == m2 && y1 == y2) {
@@ -85,7 +84,7 @@ public class PrimeDates {
                 d1 = 1;
                 if(m1 > 12) {
                     y1 =  y1 + 1;
-                    m1 = m1 + 1;
+                    m1 = 1; //reset m1 to 1st Month value after new year rollover (3)
                 }
             }
         }
