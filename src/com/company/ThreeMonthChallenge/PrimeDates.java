@@ -36,8 +36,8 @@ public class PrimeDates {
     public static void updateLeapYear(int year) {
         if(year % 400 == 0) {
             month[2] = 29; //leap year also at 400 (1)
-        } else if(year % 100 == 0) {
-            month[2] = 29;
+        } else if(year % 100 == 0) { //leap year not at 100 (5)
+            month[2] = 28;
         } else if(year % 4 == 0) {
             month[2] = 29;
         } else {
