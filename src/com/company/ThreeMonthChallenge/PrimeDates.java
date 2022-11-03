@@ -69,7 +69,7 @@ public class PrimeDates {
 
         while(true) {
             int x = d1;
-            x = x * 100 + m1;
+            x = x * 100 + m1; //what does this and the next factor do?
             x = x * 100 + y1; //removed zero from multiplication (4)
             if(x % 4 == 0 || x % 7 == 0) { //swapped && for || as per condition for problem (2)
                 result = result + 1;
