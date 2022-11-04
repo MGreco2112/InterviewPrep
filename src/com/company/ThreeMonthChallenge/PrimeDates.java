@@ -77,13 +77,13 @@ public class PrimeDates {
             if(d1 == d2 && m1 == m2 && y1 == y2) {
                 break;
             }
-            updateLeapYear(y1);
-            d1 = d1 + 1;
-            if(d1 > month[m1]) {
-                m1 = m1 + 1;
-                d1 = 1;
-                if(m1 > 12) {
-                    y1 =  y1 + 1;
+            updateLeapYear(y1); //updates value of February based on the year
+            d1 = d1 + 1; //increases day to next day
+            if(d1 > month[m1]) { //checks if day is outside max day for month value
+                m1 = m1 + 1; //rolls over to next month
+                d1 = 1; //resets day back to one
+                if(m1 > 12) { //checks if month is greater than year max
+                    y1 =  y1 + 1; //increments year
                     m1 = 1; //reset m1 to 1st Month value after new year rollover (3)
                 }
             }
