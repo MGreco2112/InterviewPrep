@@ -6,7 +6,8 @@ import java.util.Map;
 
 public class MisereNim {
     public static String misereNim(List<Integer> s) {
-        boolean isFirstPlayer = true;
+        // boolean isFirstPlayer = true;
+        int playerCount = 1;
 
         Map<Integer, Integer> stoneMap = new HashMap<>();
 
@@ -14,29 +15,37 @@ public class MisereNim {
             stoneMap.put(i, s.get(i));
         }
 
+        System.out.println(stoneMap);
+
 
         while (true) {
             boolean tookStone = false;
 
             for (Integer index : stoneMap.keySet()) {
+                System.out.println(index);
+                playerCount++;
+
+
                 if (stoneMap.get(index) != 0) {
                     int value = stoneMap.get(index);
                     value--;
                     stoneMap.put(index, value);
                     tookStone = true;
+
+                    break;
+
                 }
+
             }
-            //this system is not functioning as designed
-            isFirstPlayer = !isFirstPlayer;
 
             if (!tookStone) {
+                System.out.println("break");
                 break;
             }
 
-
-            System.out.println(isFirstPlayer);
+            System.out.println("PlayerCount: " + playerCount);
         }
 
-        return isFirstPlayer ? "First" : "Second";
+        return playerCount % 2 == 0 ? "First" : "Second";
     }
 }
