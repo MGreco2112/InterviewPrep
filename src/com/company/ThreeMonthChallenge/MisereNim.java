@@ -26,10 +26,11 @@ public class MisereNim {
 
             for (int i = 0; i < stoneMapKeys.size(); i++) {
                 System.out.println(stoneMapKeys.get(i));
-                playerCount++;
 
 
                 if (stoneMap.get(stoneMapKeys.get(i)) != 0) {
+                    playerCount++;
+
                     int value = stoneMap.get(stoneMapKeys.get(i));
                     value--;
                     stoneMap.put((Integer) stoneMapKeys.get(i), value);
@@ -53,4 +54,5 @@ public class MisereNim {
 
         return playerCount % 2 == 0 ? "First" : "Second";
     }
+
 }
