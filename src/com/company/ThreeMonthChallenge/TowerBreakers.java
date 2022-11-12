@@ -10,7 +10,20 @@ public class TowerBreakers {
 
         Map<Integer, Integer> towerMap = towerMapBuilder(n, m);
 
+        while (true) {
 
+            for (Integer tower : towerMap.keySet()) {
+                if (towerMap.get(tower) != 1) {
+                    int value = towerMap.get(tower);
+                    //reduce by undetermined value
+                }
+            }
+
+
+            if (towerMap.size() <= 0) {
+                break;
+            }
+        }
 
 
         return currentPlayer % 2 == 0 ? 1 : 2;
