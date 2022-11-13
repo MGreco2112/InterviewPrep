@@ -12,10 +12,29 @@ public class TowerBreakers {
 
         while (true) {
 
+            currentPlayer++;
+
             for (Integer tower : towerMap.keySet()) {
                 if (towerMap.get(tower) != 1) {
                     int value = towerMap.get(tower);
-                    //reduce by undetermined value
+
+                    int maxCommon = Integer.MIN_VALUE;
+
+                    for (int i = 0; i < value; i++) {
+                        if (i % value == 0 && i > maxCommon) {
+                            System.out.println(true);
+
+                            maxCommon = i;
+                        }
+                    }
+
+                    value -= maxCommon;
+
+                    towerMap.put(tower, value);
+
+                    if (value >= 1) {
+                        towerMap.remove(tower);
+                    }
                 }
             }
 
@@ -37,6 +56,10 @@ public class TowerBreakers {
         }
 
         return towerMap;
+    }
+
+    public static void main(String[] args) {
+        towerBreakers(2, 2);
     }
 
 }
