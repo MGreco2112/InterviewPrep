@@ -1,7 +1,6 @@
 package com.company.ThreeMonthChallenge;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class TowerBreakers {
     public static int towerBreakers(int n, int m) {
@@ -14,14 +13,16 @@ public class TowerBreakers {
 
             currentPlayer++;
 
-            for (Integer tower : towerMap.keySet()) {
-                if (towerMap.get(tower) != 1) {
-                    int value = towerMap.get(tower);
+            List<Object> keys = Arrays.asList(towerMap.keySet().toArray());
+
+            for (int i = 0; i < keys.size(); i++) {
+                if (towerMap.get(keys.get(i)) != 1) {
+                    int value = towerMap.get(keys.get(i));
 
                     int maxCommon = Integer.MIN_VALUE;
 
-                    for (int i = 0; i < value; i++) {
-                        if (i % value == 0 && i > maxCommon) {
+                    for (int j = 0; j < value; j++) {
+                        if (j % value == 0 && j > maxCommon) {
                             System.out.println(true);
 
                             maxCommon = i;
@@ -30,10 +31,10 @@ public class TowerBreakers {
 
                     value -= maxCommon;
 
-                    towerMap.put(tower, value);
+                    towerMap.put(i + 1, value);
 
                     if (value >= 1) {
-                        towerMap.remove(tower);
+                        towerMap.remove(keys.get(i));
                     }
                 }
             }
@@ -59,7 +60,7 @@ public class TowerBreakers {
     }
 
     public static void main(String[] args) {
-        towerBreakers(2, 2);
+        System.out.println(towerBreakers(2, 2));
     }
 
 }
