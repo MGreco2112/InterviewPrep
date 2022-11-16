@@ -31,11 +31,13 @@ public class TowerBreakers {
 
                     value -= maxCommon;
 
-                    towerMap.put(i + 1, value);
+                    towerMap.put((int) keys.get(i), value);
 
                     if (value >= 1) {
                         towerMap.remove(keys.get(i));
                     }
+
+                    break;
                 }
             }
 
