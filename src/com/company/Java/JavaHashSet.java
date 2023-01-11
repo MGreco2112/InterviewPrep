@@ -18,6 +18,8 @@ public class JavaHashSet {
 
         //Write your code here
 
+        int output = 0;
+
          for (int i = 0; i < pair_left.length; i++) {
              String[] currentPairs = new String[2];
 
@@ -35,17 +37,13 @@ public class JavaHashSet {
                      pair_right[j] = "";
                  }
              }
-         }
 
-         int output = 0;
-
-         for (int i = 0; i < pair_left.length; i++) {
-             if (pair_left[i] != "") {
+             if (!currentPairs[0].equals("")) {
                  output++;
              }
 
              System.out.println(output);
-         }
 
+         }
     }
 }
