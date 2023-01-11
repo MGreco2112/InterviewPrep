@@ -1,8 +1,6 @@
 package com.company.Java;
 
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class JavaHashSet {
     public static void main(String[] args) {
@@ -17,33 +15,49 @@ public class JavaHashSet {
         }
 
         //Write your code here
+//
+//        int output = 0;
+//
+//         for (int i = 0; i < pair_left.length; i++) {
+//             String[] currentPairs = new String[2];
+//
+//             currentPairs[0] = pair_left[i];
+//             currentPairs[1] = pair_right[i];
+//
+//
+//             for (int j = i + 1; j < pair_left.length; j++) {
+//                 String a = pair_left[j];
+//                 String b = pair_right[j];
+//
+//
+//                 if (a.equals(currentPairs[0]) && b.equals(currentPairs[1])) {
+//                     pair_left[j] = "";
+//                     pair_right[j] = "";
+//                 }
+//             }
+//
+//             if (!currentPairs[0].equals("")) {
+//                 output++;
+//             }
+//
+//             System.out.println(output);
+//
+//         }
 
-        int output = 0;
+        //2nd Attempt
+        Set<Map<String,String>> mapSet = new HashSet<>();
 
-         for (int i = 0; i < pair_left.length; i++) {
-             String[] currentPairs = new String[2];
+        for (int i = 0; i < pair_left.length; i++) {
+            String a = pair_left[i];
+            String b = pair_right[i];
 
-             currentPairs[0] = pair_left[i];
-             currentPairs[1] = pair_right[i];
+            Map<String,String> tempMap = new HashMap<>();
 
+            tempMap.put(a,b);
 
-             for (int j = i + 1; j < pair_left.length; j++) {
-                 String a = pair_left[j];
-                 String b = pair_right[j];
+            mapSet.add(tempMap);
 
-
-                 if (a.equals(currentPairs[0]) && b.equals(currentPairs[1])) {
-                     pair_left[j] = "";
-                     pair_right[j] = "";
-                 }
-             }
-
-             if (!currentPairs[0].equals("")) {
-                 output++;
-             }
-
-             System.out.println(output);
-
-         }
+            System.out.println(mapSet.size());
+        }
     }
 }
