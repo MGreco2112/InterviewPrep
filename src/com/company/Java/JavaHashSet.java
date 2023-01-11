@@ -16,21 +16,36 @@ public class JavaHashSet {
             pair_right[i] = s.next();
         }
 
-        Set<String> nameSet = new HashSet<>();
+        //Write your code here
 
-        int output = 0;
+         for (int i = 0; i < pair_left.length; i++) {
+             String[] currentPairs = new String[2];
 
-        for (int i = 0; i < pair_right.length; i++) {
-            if (!nameSet.contains(pair_left[i]) || !nameSet.contains(pair_right[i])) {
-                output++;
-            }
-            nameSet.add(pair_left[i]);
-            nameSet.add(pair_right[i]);
+             currentPairs[0] = pair_left[i];
+             currentPairs[1] = pair_right[i];
 
-            System.out.println(output);
-        }
 
-//Not every case passes, need to account for order of elements in pair
+             for (int j = i + 1; j < pair_left.length; j++) {
+                 String a = pair_left[j];
+                 String b = pair_right[j];
+
+
+                 if (a.equals(currentPairs[0]) && b.equals(currentPairs[1])) {
+                     pair_left[j] = "";
+                     pair_right[j] = "";
+                 }
+             }
+         }
+
+         int output = 0;
+
+         for (int i = 0; i < pair_left.length; i++) {
+             if (pair_left[i] != "") {
+                 output++;
+             }
+
+             System.out.println(output);
+         }
 
     }
 }
