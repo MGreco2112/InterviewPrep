@@ -6,43 +6,25 @@ import java.util.List;
 
 public class PickingNumbers {
     public static int pickingNumbers(List<Integer> a) {
-
         Collections.sort(a);
 
-        System.out.println(a);
+        int maxLength = 0;
 
-        List<Integer> streaks = new ArrayList<>();
+        for (int i = 0; i < a.size(); i++) {
+            int currentCount = 0;
+            int pointer = a.get(i);
 
-        int currentNum = a.get(0);
-        int currentStreak = 1;
-
-        for (int i = 1; i < a.size(); i++) {
-            System.out.println(a.get(i));
-            System.out.println("current num: " + currentNum);
-
-            //condition is faulty
-            //greater or equal passes one case
-            //only greater passes other
-            //greater or equal passes more cases overall
-            //the reason for this needs to be ironed out further
-
-
-            if (a.get(i) >= currentNum + 1) {
-                System.out.println(true);
-
-                streaks.add(currentStreak);
-                currentStreak = 1;
-
-                currentNum = a.get(i);
+            for (int j = i + 1; j < a.size(); j++) {
+                if (pointer == a.get(j) || pointer + 1 == a.get(j)) {
+                    currentCount++;
+                }
             }
 
-            if (a.get(i) == currentNum || a.get(i) == currentNum + 1) {
-                currentStreak++;
+            if (currentCount > maxLength) {
+                maxLength = currentCount;
             }
         }
 
-
-
-        return Collections.max(streaks);
+        return maxLength != 0 ? maxLength + 1 : 0;
     }
 }
