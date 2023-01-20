@@ -8,54 +8,49 @@ public class JavaArrayList {
 
     public static void main(String[] args) {
         /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner scanner = new Scanner(System.in);
 
-        int listLength = Integer.parseInt(scanner.nextLine());
+        List<Integer> numList = new ArrayList<>();
 
-        List<String> listElements = new ArrayList<>();
+        int listSize = Integer.parseInt(scanner.nextLine());
 
-        listElements.addAll(Arrays.asList(
-                scanner.nextLine().replaceAll(" ", ",").split(",")
-        ));
+        String numString = scanner.nextLine();
+
+        String[] numArr = numString.split(" ");
+
+        for (int i = 0; i < listSize; i++) {
+            numList.add(Integer.parseInt(numArr[i]));
+        }
 
         int queryCount = Integer.parseInt(scanner.nextLine());
 
-        for (int i = 0; i < queryCount; i++) {
-            String action = scanner.nextLine();
+        while (queryCount > 0) {
+            String operation = scanner.nextLine();
 
-            switch (action) {
+            switch (operation) {
                 case "Insert": {
-                    String[] commands = scanner.nextLine().split(" ");
-                    int index = Integer.parseInt(commands[0]);
+                    String[] elements = scanner.nextLine().split(" ");
+                    int index = Integer.parseInt(elements[0]);
+                    int element = Integer.parseInt(elements[1]);
 
-                    if (index >= listElements.size()) {
-                        while (listElements.size() < index) {
-                            listElements.add("0");
-                        }
-                        listElements.add(commands[1]);
-                    } else {
-                        listElements.set(index, commands[1]);
-                    }
+                    numList.add(index, element);
 
                     break;
                 }
                 case "Delete": {
                     int index = Integer.parseInt(scanner.nextLine());
-                    if (index < listElements.size()) {
-                        listElements.remove(index);
-                    }
 
+                    numList.remove(index);
                     break;
                 }
             }
+
+            queryCount--;
         }
 
-        String output = "";
-
-        for (String element : listElements) {
-            output += element + " ";
+        for (Integer num : numList) {
+            System.out.print(num + " ");
         }
-
-        System.out.println(output.trim());
 
     }
 }
