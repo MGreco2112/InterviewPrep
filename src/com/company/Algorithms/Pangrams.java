@@ -29,6 +29,8 @@ public class Pangrams {
 //    }
 
     public static String pangrams(String s) {
+        final int ALPHABET_LENGTH_PLUS_SPACE = 27;
+
         Set<Character> charSet = new HashSet<>();
 
         String lowerCaseS = s.toLowerCase();
@@ -37,10 +39,11 @@ public class Pangrams {
             charSet.add(lowerCaseS.charAt(i));
         }
 
-        if (charSet.size() != 27) {
+        if (charSet.size() != ALPHABET_LENGTH_PLUS_SPACE) {
             return "not pangram";
         } else {
             return "pangram";
         }
     }
+
 }
