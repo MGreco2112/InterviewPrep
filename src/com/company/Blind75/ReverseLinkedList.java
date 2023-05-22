@@ -14,9 +14,7 @@ public class ReverseLinkedList {
      }
 
     public ListNode reverseList(ListNode head) {
-        ListNode current = head;
-        ListNode prev = null;
-        ListNode next = null;
+
         /*
          implied null* [{1}, {2}, {3}, {4}, {5}] *implied null
          [0]:
@@ -80,14 +78,18 @@ public class ReverseLinkedList {
          current continues down the line in original order
          */
 
+        ListNode prev = null;
+        ListNode current = head;
+        ListNode next = null;
+
         while (current != null) {
-            next = current.next;
-            current.next = prev;
-            prev = current;
-            current = next;
+            next = current.next; //maintain current traversal down the array
+            current.next = prev; //set current.next to prior node in the chain for reversal
+            prev = current; //reassign previous node to current node for next iteration
+            current = next; //update current with the stored value to continue down the chain
         }
 
-        head = prev;
+        head = prev; //back head up to previous after assigning it null to signify the end of the list
         return head;
 
     }
