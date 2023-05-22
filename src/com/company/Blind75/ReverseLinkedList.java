@@ -18,8 +18,29 @@ public class ReverseLinkedList {
         ListNode prev = null;
         ListNode next = null;
         /*
-         [1, 2, 3, 4, 5]
-         head = 1
+         implied null* [{1}, {2}, {3}, {4}, {5}] *implied null
+         [0]:
+            prev: null
+            val: 1
+            next: 2
+         [1]:
+            prev: 1
+            val: 2
+            next: 3
+         [2]:
+            prev: 2
+            val: 3
+            next: 4
+         [3]:
+            prev: 3
+            val: 4
+            next: 5
+         [4]:
+            prev: 4
+            val: 5
+            next: null
+
+         head = {1}
 
          1st iteration:
          current = 1 (not null)
@@ -29,8 +50,32 @@ public class ReverseLinkedList {
          prev = 1 (current)
          current = 2 (next)
 
-         list: [null, 2, 1, 3, 4, 5]
+
          current now is 2
+         list:
+            implied null* [{2}, {1}, {3}, {4}, {5}] *implied null
+
+        [0]: ** THIS IS ONLY INDEX 0 IN REFERENCE TO NODE VAL 1
+            prev: 1
+            val: 2
+            next: 3
+        [1]: ** THIS WAS MODIFIED LAST ITERATION
+            prev: 2
+            val: 1
+            next: null
+        [2]:
+            prev: 2
+            val: 3
+            next: 4
+        [3]:
+            prev: 3
+            val: 4
+            next: 5
+        [4]:
+            prev: 4
+            val: 5
+            next: null
+
 
          current continues down the line in original order
          */
