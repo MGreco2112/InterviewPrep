@@ -5,7 +5,6 @@ import java.util.List;
 
 public class ReverseLinkedList {
 
-
      public class ListNode {
          int val;
          ListNode next;
@@ -15,32 +14,36 @@ public class ReverseLinkedList {
      }
 
     public ListNode reverseList(ListNode head) {
-        List<Integer> values = new ArrayList<>();
+        ListNode current = head;
+        ListNode prev = null;
+        ListNode next = null;
+        /*
+         [1, 2, 3, 4, 5]
+         head = 1
 
-        while (head != null) {
-            values.add(head.val);
-            // System.out.println(head.val);
-            head = head.next;
+         1st iteration:
+         current = 1 (not null)
+
+         next = 2 (current.next) this stores the value for loop iterations
+         current.next = null (prev)
+         prev = 1 (current)
+         current = 2 (next)
+
+         list: [null, 2, 1, 3, 4, 5]
+         current now is 2
+
+         current continues down the line in original order
+         */
+
+        while (current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
         }
 
-        ListNode newHead = new ListNode();
-
-        if (values.size() > 0) {
-            newHead = new ListNode(values.get(values.size() - 1));
-
-            ListNode pointer = newHead;
-
-            for (int i = values.size() - 2; i >= 0; i--) {
-                ListNode newNode = new ListNode(values.get(i));
-                pointer.next = newNode;
-                pointer = newNode;
-            }
-        } else {
-            newHead = null;
-        }
-
-
-        return newHead;
+        head = prev;
+        return head;
 
     }
 }
