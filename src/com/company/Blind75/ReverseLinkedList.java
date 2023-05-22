@@ -17,6 +17,7 @@ public class ReverseLinkedList {
 
         /*
          implied null* [{1}, {2}, {3}, {4}, {5}] *implied null
+                         _
          [0]:
             prev: null
             val: 1
@@ -52,6 +53,7 @@ public class ReverseLinkedList {
          current now is 2
          list:
             implied null* [{2}, {1}, {3}, {4}, {5}] *implied null
+                            _
 
         [0]: ** THIS IS ONLY INDEX 0 IN REFERENCE TO NODE VAL 1
             prev: 1
